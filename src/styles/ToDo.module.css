@@ -1,0 +1,57 @@
+.todo {
+  position: absolute;
+  left: 45px;
+  top: 100px;
+}
+
+.todo::-webkit-scrollbar {
+  display: none;
+}
+
+.todo {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+  padding: 10px;
+  margin: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+}
+
+.input > form > button {
+  display: none;
+}
+
+.input > form > input {
+  background-color: transparent;
+  color: white;
+  height: 20px;
+  border: none;
+  outline-width: 0;
+  font-size: 16px;
+}
+
+.input > form > input::placeholder {
+  color: lightgray;
+}
+
+.todoList {
+  overflow: scroll;
+}
+
+.todoList::-webkit-scrollbar {
+  display: none;
+}
+
+.todoList {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
