@@ -27,7 +27,11 @@ const ToDoNote = forwardRef(({ id, note, checked }, ref) => {
 
   return (
     <div ref={ref} className={styles.todonote}>
-      <Checkbox onChange={checkNote} className={styles.checkbox} />
+      <Checkbox
+        checked={checked}
+        onChange={checkNote}
+        className={styles.checkbox}
+      />
       <h3 className={checked && styles.noteChecked}>{note}</h3>
       <IconButton onClick={deleteNote} className={styles.delete}>
         <DeleteOutlinedIcon className={styles.deleteButton} />

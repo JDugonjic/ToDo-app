@@ -23,7 +23,7 @@ function ToDo() {
   useEffect(() => {
     const unsubscribe = db
       .collection("notes")
-      .orderBy("timestamp", "asc")
+      .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setNotes(
           snapshot.docs.map((doc) => ({
@@ -43,14 +43,14 @@ function ToDo() {
   return (
     <div className={styles.todo}>
       <div className={styles.input}>
-        <form>
+        <form onSubmit={sendNote}>
           <input
             placeholder="Add To Do"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             type="text"
           />
-          <button onClick={sendNote} type="submit"></button>
+          <button type="submit"></button>
         </form>
       </div>
       <div className={styles.todoList}>
