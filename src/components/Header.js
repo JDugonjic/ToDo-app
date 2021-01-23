@@ -1,5 +1,6 @@
 import React from "react";
 import useRandomQuote from "../app/hooks/useRandomQuote";
+import { auth } from "../firebase";
 import styles from "../styles/Header.module.css";
 
 function Header() {
@@ -7,7 +8,7 @@ function Header() {
 
   return (
     <div className={styles.header}>
-      <div className={styles.quote}>
+      <div onClick={() => auth.signOut()} className={styles.quote}>
         <span>
           <h2>{`"${quote?.text}"`}</h2>
         </span>

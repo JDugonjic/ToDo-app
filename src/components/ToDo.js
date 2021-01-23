@@ -4,24 +4,31 @@ import ToDoNote from "./ToDoNote";
 import { db } from "../firebase";
 import firebase from "firebase";
 import FlipMove from "react-flip-move";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/appSlice";
 
-function ToDo() {
+function ToDo({ userId }) {
   const [input, setInput] = useState("");
   const [notes, setNotes] = useState([]);
+  const user = useSelector(selectUser);
 
   const sendNote = (e) => {
     e.preventDefault();
-    db.collection("notes").add({
-      user: "Jelena",
-      note: input.charAt(0).toUpperCase() + input.substring(1, input.length),
-      checked: false,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    db.collection("users")
+      .doc(userId)
+      .collection("notes")
+      .add({
+        note: input.charAt(0).toUpperCase() + input.substring(1, input.length),
+        checked: false,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
     setInput("");
   };
 
   useEffect(() => {
     const unsubscribe = db
+      .collection("users")
+      .doc(userId)
       .collection("notes")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
@@ -56,7 +63,13 @@ function ToDo() {
       <div className={styles.todoList}>
         <FlipMove>
           {notes.map(({ id, data: { note, checked } }) => (
-            <ToDoNote key={id} id={id} note={note} checked={checked} />
+            <ToDoNote
+              userId={userId}
+              key={id}
+              id={id}
+              note={note}
+              checked={checked}
+            />
           ))}
         </FlipMove>
       </div>

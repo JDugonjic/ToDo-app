@@ -5,11 +5,14 @@ import { db } from "../firebase";
 import { IconButton } from "@material-ui/core";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import { makeStyles } from "@material-ui/styles";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/appSlice";
 
-const ToDoNote = forwardRef(({ id, note, checked }, ref) => {
+const ToDoNote = forwardRef(({ id, note, checked, userId }, ref) => {
+  const user = useSelector(selectUser);
   const useStyles = makeStyles({
     checkbox: {
-      color: "pink",
+      color: "whitesmoke",
     },
   });
 
@@ -17,7 +20,7 @@ const ToDoNote = forwardRef(({ id, note, checked }, ref) => {
 
   const checkNote = () => {
     if (!checked) {
-      db.collection("notes").doc(id).set(
+      db.collection("users").doc(userId).collection("notes").doc(id).set(
         {
           checked: true,
         },
@@ -30,7 +33,7 @@ const ToDoNote = forwardRef(({ id, note, checked }, ref) => {
 
   const deleteNote = () => {
     if (id) {
-      db.collection("notes").doc(id).delete();
+      db.collection("users").doc(userId).collection("notes").doc(id).delete();
     }
   };
 
