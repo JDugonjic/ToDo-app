@@ -19,6 +19,6 @@
 }
 
 .button {
-  border: none;
-  color: #02586f;
+  border: none !important;
+  color: #02586f !important;
 }

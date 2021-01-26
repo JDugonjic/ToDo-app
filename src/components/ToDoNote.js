@@ -1,18 +1,16 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import styles from "../styles/ToDoNote.module.css";
 import Checkbox from "@material-ui/core/Checkbox";
 import { db } from "../firebase";
 import { IconButton } from "@material-ui/core";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import { makeStyles } from "@material-ui/styles";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/appSlice";
+import InlineEdit from "./InlineEdit";
 
 const ToDoNote = forwardRef(({ id, note, checked, userId }, ref) => {
-  const user = useSelector(selectUser);
   const useStyles = makeStyles({
     checkbox: {
-      color: "whitesmoke",
+      color: "lightgray",
     },
   });
 
@@ -37,6 +35,21 @@ const ToDoNote = forwardRef(({ id, note, checked, userId }, ref) => {
     }
   };
 
+  const [text, setStoredText] = useState([note]);
+
+  useEffect(() => {
+    if (note) {
+      db.collection("users").doc(userId).collection("notes").doc(id).set(
+        {
+          note: text,
+        },
+        {
+          merge: text,
+        }
+      );
+    }
+  }, [note, userId, id, text]);
+
   return (
     <div ref={ref} className={styles.todonote}>
       <Checkbox
@@ -44,7 +57,9 @@ const ToDoNote = forwardRef(({ id, note, checked, userId }, ref) => {
         onChange={checkNote}
         className={classes.checkbox}
       />
-      <h3 className={checked && styles.noteChecked}>{note}</h3>
+      <h3 className={checked && styles.noteChecked}>
+        <InlineEdit text={text} onSetText={(text) => setStoredText(text)} />
+      </h3>
       <IconButton onClick={deleteNote} className={styles.delete}>
         <DeleteOutlinedIcon className={styles.deleteButton} />
       </IconButton>

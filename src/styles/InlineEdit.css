@@ -1,0 +1,30 @@
+.inline-text_copy--active,
+.inline-text_input--active {
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.inline-text_copy--active {
+  cursor: pointer;
+}
+
+.inline-text_copy--hidden {
+  display: none;
+}
+
+.inlineText_input--hidden {
+  display: none;
+}
+
+.inlineText_input--active {
+  border: none;
+  outline-width: 0;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+}
