@@ -23,7 +23,7 @@
 .inlineText_input--active {
   border: none;
   outline-width: 0;
-  text-align: center;
+  text-align: left;
   background-color: transparent;
   color: white;
   font-size: 18px;

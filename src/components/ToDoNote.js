@@ -35,7 +35,7 @@ const ToDoNote = forwardRef(({ id, note, checked, userId }, ref) => {
     }
   };
 
-  const [text, setStoredText] = useState([note]);
+  const [text, setStoredText] = useState(note);
 
   useEffect(() => {
     if (note) {
