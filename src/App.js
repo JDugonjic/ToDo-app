@@ -28,14 +28,16 @@ function App() {
 
   return (
     <div className="app">
-      {!user ? (
-        <Login />
-      ) : (
-        <>
-          <Header />
-          <ToDo userId={user.userId} />
-        </>
-      )}
+      <div className="app__container">
+        {!user ? (
+          <Login />
+        ) : (
+          <>
+            <Header />
+            <ToDo userId={user.userId} />
+          </>
+        )}
+      </div>
     </div>
   );
 }

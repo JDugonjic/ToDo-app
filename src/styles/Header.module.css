@@ -3,6 +3,14 @@
   justify-content: center;
 }
 
+@media (max-width: 600px) {
+  .header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+  }
+}
+
 .quote {
   display: flex;
   flex-direction: column;

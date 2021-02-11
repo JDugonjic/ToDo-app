@@ -1,7 +1,16 @@
 .todo {
-  position: absolute;
+  position: fixed;
   left: 45px;
   top: 100px;
+}
+
+@media (max-width: 600px) {
+  .todo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: -45px;
+  }
 }
 
 .todo::-webkit-scrollbar {
