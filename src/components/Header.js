@@ -9,12 +9,22 @@ function Header() {
   return (
     <div className={styles.header}>
       <div onClick={() => auth.signOut()} className={styles.quote}>
-        <span>
-          <h2>{`"${quote?.text}"`}</h2>
-        </span>
-        <span>
-          <p>{quote?.author}</p>
-        </span>
+        {!quote ? (
+          <>
+            <span>
+              <h2>{`"${quote?.text}"`}</h2>
+            </span>
+            <span>
+              <p>{quote?.author}</p>
+            </span>
+          </>
+        ) : (
+          <>
+            <span>
+              <h2>SIGN OUT</h2>
+            </span>
+          </>
+        )}
       </div>
     </div>
   );
