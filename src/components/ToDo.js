@@ -45,8 +45,6 @@ function ToDo({ userId }) {
     };
   }, []);
 
-  console.log(notes);
-
   return (
     <div className={styles.todo}>
       <div className={styles.input}>

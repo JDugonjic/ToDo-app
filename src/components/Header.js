@@ -5,23 +5,25 @@ import styles from "../styles/Header.module.css";
 
 function Header() {
   const quote = useRandomQuote();
-
   return (
     <div className={styles.header}>
       <div onClick={() => auth.signOut()} className={styles.quote}>
-        {!quote ? (
+        {quote === "error" ? (
+          <>
+            <span>
+              <h2>“Peace comes from within. Do not seek it without.”</h2>
+            </span>
+            <span>
+              <p>Buddha</p>
+            </span>
+          </>
+        ) : (
           <>
             <span>
               <h2>{`"${quote?.text}"`}</h2>
             </span>
             <span>
               <p>{quote?.author}</p>
-            </span>
-          </>
-        ) : (
-          <>
-            <span>
-              <h2>SIGN OUT</h2>
             </span>
           </>
         )}

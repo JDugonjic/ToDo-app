@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function useRandomQuote() {
-  const [quote, setQuote] = useState([]);
+  const [quote, setQuote] = useState([null]);
 
   const fetchQuotes = async () => {
     return await fetch("https://type.fit/api/quotes")
@@ -10,7 +10,8 @@ function useRandomQuote() {
         const randomNum = Math.floor(Math.random() * data.length + 1);
 
         setQuote(data[randomNum]);
-      });
+      })
+      .catch((error) => setQuote("error"));
   };
 
   useEffect(() => {
