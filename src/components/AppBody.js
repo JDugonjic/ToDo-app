@@ -8,6 +8,7 @@ import Settings from "./Settings";
 import { useDispatch, useSelector } from "react-redux";
 import {
   openSettings,
+  selectDarkMode,
   selectSettingsIsOpen,
   selectShowQuotes,
 } from "../features/settingsSlice";
@@ -16,10 +17,15 @@ function AppBody({ userId }) {
   const settingsIsOpen = useSelector(selectSettingsIsOpen);
   const dispatch = useDispatch();
   const showQuotes = useSelector(selectShowQuotes);
+  const darkMode = useSelector(selectDarkMode);
 
   return (
     <div className={styles.appBody}>
-      <div className={styles.gradient} />
+      {darkMode ? (
+        <div className={styles.gradientDarkMode} />
+      ) : (
+        <div className={styles.gradient} />
+      )}
       <div className={styles.header}>{showQuotes && <Header />}</div>
       <div className={styles.appBodyContent}>
         <div>

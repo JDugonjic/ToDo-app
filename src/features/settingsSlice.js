@@ -5,6 +5,7 @@ export const settingsSlice = createSlice({
   initialState: {
     settingsIsOpen: false,
     showQuotes: true,
+    darkMode: false,
   },
   reducers: {
     openSettings: (state) => {
@@ -21,6 +22,13 @@ export const settingsSlice = createSlice({
     openQuotes: (state) => {
       state.showQuotes = true;
     },
+    lightMode: (state) => {
+      state.darkMode = false;
+    },
+
+    darkMode: (state) => {
+      state.darkMode = true;
+    },
   },
 });
 
@@ -29,10 +37,14 @@ export const {
   closeSettings,
   openQuotes,
   closeQuotes,
+  lightMode,
+  darkMode,
 } = settingsSlice.actions;
 
 export const selectSettingsIsOpen = (state) => state.settings.settingsIsOpen;
 
 export const selectShowQuotes = (state) => state.settings.showQuotes;
+
+export const selectDarkMode = (state) => state.settings.darkMode;
 
 export default settingsSlice.reducer;

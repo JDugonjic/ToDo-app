@@ -68,3 +68,60 @@
   padding-right: 15px;
   cursor: pointer;
 }
+
+.titleSettingsCustomize {
+  color: #053541;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-left: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.themeBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #053541;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.themeTitle {
+  font-size: 1.2rem;
+  margin-left: 15px;
+  font-weight: 400;
+}
+
+.themeBoxChoice {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.dark {
+  color: #053541;
+  padding: 5px;
+  margin: left 5px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dark:hover {
+  transform: scale(1.2);
+}
+
+.light {
+  color: #053541;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.light:hover {
+  transform: scale(1.2);
+}

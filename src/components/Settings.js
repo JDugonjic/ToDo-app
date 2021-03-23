@@ -5,6 +5,8 @@ import {
   selectShowQuotes,
   closeQuotes,
   openQuotes,
+  darkMode,
+  lightMode,
 } from "../features/settingsSlice";
 import styles from "../styles/Settings.module.css";
 import HighlightOffRoundedIcon from "@material-ui/icons/HighlightOffRounded";
@@ -40,6 +42,20 @@ function Settings() {
             className={styles.toggleOn}
           />
         )}
+      </div>
+      <div className={styles.settingsQuotes}>
+        <p className={styles.titleSettingsCustomize}>Customize</p>
+      </div>
+      <div className={styles.themeBox}>
+        <p className={styles.themeTitle}>Theme</p>
+        <div className={styles.themeBoxChoice}>
+          <p onClick={() => dispatch(darkMode())} className={styles.dark}>
+            Dark
+          </p>
+          <p onClick={() => dispatch(lightMode())} className={styles.light}>
+            Light
+          </p>
+        </div>
       </div>
     </div>
   );

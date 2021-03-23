@@ -12,6 +12,11 @@
   border-radius: 10px;
 }
 
+.todonote:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.2s;
+}
+
 .todonote > h3 {
   flex: 1;
   color: whitesmoke;
