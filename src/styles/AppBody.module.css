@@ -31,3 +31,36 @@
     rgba(0, 0, 0, 0.25) 100%
   );
 }
+
+.appBodyContent {
+  position: fixed;
+  bottom: 2%;
+  right: 10%;
+}
+
+@media (max-width: 600px) {
+  .signOutButton {
+    display: none;
+  }
+}
+
+.signOutButton {
+  width: 100px;
+  text-align: center;
+  color: #053541;
+  font-weight: 500;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+  transition: 280ms ease-out;
+  cursor: pointer;
+}
+
+.signOutButton:hover {
+  background-color: #053541;
+  color: lightgrey;
+  transition: all 0.2s;
+}
