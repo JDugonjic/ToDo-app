@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../styles/Login.module.css";
-import { Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { auth, provider } from "../firebase";
 import { login } from "../features/appSlice";
@@ -24,10 +23,14 @@ function Login() {
 
   return (
     <div className={styles.login}>
+      <div className={styles.loginScreen__gradient} />
       <div className={styles.loginContainer}>
-        <Button className={styles.button} variant="outlined" onClick={signIn}>
+        <h1>TO DOO DO</h1>
+        <h2>Welcome</h2>
+        <p>Please sign in to start your journey</p>
+        <div className={styles.button} onClick={signIn}>
           Sign in
-        </Button>
+        </div>
       </div>
     </div>
   );
