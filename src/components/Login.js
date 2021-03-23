@@ -26,7 +26,7 @@ function Login() {
       <div className={styles.loginScreen__gradient} />
       <div className={styles.loginContainer}>
         <h1>TO DOO DO</h1>
-        <h2>Welcome</h2>
+        <h2 className={styles.loginWelcome}>Welcome</h2>
         <p>Please sign in to start your journey</p>
         <div className={styles.button} onClick={signIn}>
           Sign in

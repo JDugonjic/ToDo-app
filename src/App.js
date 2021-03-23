@@ -6,6 +6,7 @@ import { auth } from "./firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout, selectUser } from "./features/appSlice";
 import Login from "./components/Login";
+import AppBody from "./components/AppBody";
 
 function App() {
   const user = useSelector(selectUser);
@@ -33,9 +34,10 @@ function App() {
           <Login />
         ) : (
           <>
-            <Header />
+            <AppBody />
+            {/*<Header />
 
-            <ToDo userId={user.userId} />
+            <ToDo userId={user.userId} />*/}
           </>
         )}
       </div>
