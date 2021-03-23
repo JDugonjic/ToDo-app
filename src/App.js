@@ -34,7 +34,7 @@ function App() {
           <Login />
         ) : (
           <>
-            <AppBody />
+            <AppBody userId={user.userId} />
             {/*<Header />
 
             <ToDo userId={user.userId} />*/}

@@ -16,12 +16,12 @@
   flex: 1;
   color: whitesmoke;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .noteChecked {
   color: #53ef15 !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   text-decoration: line-through whitesmoke;
 }
 
