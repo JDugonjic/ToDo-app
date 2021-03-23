@@ -42,8 +42,16 @@
   .signOutButton {
     display: none;
   }
+  .settingsIcon {
+    display: none;
+  }
 }
 
+.bottomButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .signOutButton {
   width: 100px;
   text-align: center;
@@ -63,4 +71,14 @@
   background-color: #053541;
   color: lightgrey;
   transition: all 0.2s;
+}
+
+.settingsIcon {
+  color: lightgrey !important;
+  opacity: 0.8;
+  margin-left: 15px;
+}
+
+.settingsIcon:hover {
+  opacity: 0.6;
 }

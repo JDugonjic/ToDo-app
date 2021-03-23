@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import ToDo from "./components/ToDo";
-import Header from "./components/Header";
 import { auth } from "./firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout, selectUser } from "./features/appSlice";
@@ -35,9 +33,6 @@ function App() {
         ) : (
           <>
             <AppBody userId={user.userId} />
-            {/*<Header />
-
-            <ToDo userId={user.userId} />*/}
           </>
         )}
       </div>
