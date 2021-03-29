@@ -12,16 +12,29 @@ import {
   selectSettingsIsOpen,
   selectShowQuotes,
 } from "../features/settingsSlice";
+import { useEffect } from "react";
+import { useState } from "react";
+import ls from "local-storage";
 
 function AppBody({ userId }) {
   const settingsIsOpen = useSelector(selectSettingsIsOpen);
   const dispatch = useDispatch();
   const showQuotes = useSelector(selectShowQuotes);
+  const [theme, setTheme] = useState(false);
+  const localTheme = ls.get("darkMode");
   const darkMode = useSelector(selectDarkMode);
+
+  useEffect(() => {
+    if (localTheme === "true") {
+      setTheme(true);
+    } else {
+      setTheme(false);
+    }
+  }, [localTheme, darkMode]);
 
   return (
     <div className={styles.appBody}>
-      {darkMode ? (
+      {theme ? (
         <div className={styles.gradientDarkMode} />
       ) : (
         <div className={styles.gradient} />

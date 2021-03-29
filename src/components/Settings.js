@@ -12,12 +12,11 @@ import styles from "../styles/Settings.module.css";
 import HighlightOffRoundedIcon from "@material-ui/icons/HighlightOffRounded";
 import ToggleOnIcon from "@material-ui/icons/ToggleOn";
 import ToggleOffIcon from "@material-ui/icons/ToggleOff";
+import ls from "local-storage";
 
 function Settings() {
   const dispatch = useDispatch();
   const showQuotes = useSelector(selectShowQuotes);
-
-  console.log("www", showQuotes);
 
   return (
     <div className={styles.settings}>
@@ -49,10 +48,22 @@ function Settings() {
       <div className={styles.themeBox}>
         <p className={styles.themeTitle}>Theme</p>
         <div className={styles.themeBoxChoice}>
-          <p onClick={() => dispatch(darkMode())} className={styles.dark}>
+          <p
+            onClick={() => {
+              dispatch(darkMode());
+              ls.set("darkMode", "true");
+            }}
+            className={styles.dark}
+          >
             Dark
           </p>
-          <p onClick={() => dispatch(lightMode())} className={styles.light}>
+          <p
+            onClick={() => {
+              dispatch(lightMode());
+              ls.set("darkMode", "light");
+            }}
+            className={styles.light}
+          >
             Light
           </p>
         </div>
