@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 function useRandomQuote() {
-  const [quote, setQuote] = useState([null]);
+  const [quote, setQuote] = useState();
 
   const fetchQuotes = () => {
     fetch('https://type.fit/api/quotes')
